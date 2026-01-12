@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Sign in</title>
+    <style>
+        
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  list-style: none;
+            text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ body {
+ background-color: black;
+}
+
+.hero-container {
+height: 700px;
+width: 100%;
+background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(imges/bg.jpg);
+background-size: cover;
+background-position: center;
+ padding-top: 15px;
+}
+
+.hero-container img {
+height: 40px;
+margin-left: 150px;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo{
+  height: 40px;
+}
+.logo-link{
+  display: inline-block;
+}
+
+.logo-link img{
+  cursor: pointer;
+}
+
+.from {
+max-width: 500px;
+width: 90%;
+background-color: rgba(0, 0, 0, 0.466);
+padding: 50px;
+color: white;
+margin: 0 auto;
+margin-top: 130px;
+margin-top: 10px;
+}
+        
+.sign-in{
+    text-align: left;
+    color: white;
+    font-size: 31px;
+}
+.from input{
+padding: 15px;
+width: 80%;
+max-width: 470px;
+background-color: rgba(0, 0, 0, 0.486);
+border: 1px solid white;
+border-radius: 5px;
+padding: 15px;margin: 10px;
+}
+.sign-in-btn{
+padding: 15px;
+width: 83%;
+max-width: 490px;
+background-color: red;
+color: white;
+border-radius: 5px;
+padding: 10px;
+margin: 5px;
+font-size: 22px;
+}
+.or{
+    font-size: 21px;
+    text-align: center;
+}
+.code-btn{
+     padding: 15px;
+width: 83%;
+max-width: 490px;
+background-color: transparent;
+color: white;
+border-radius: 5px;
+padding: 7px;
+margin: 8px;
+font-size: 20px;  
+}
+.link{
+    color: white;
+    font-size: 17px;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.link:hover{
+color: gray;
+}
+
+.remember{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b3b3b3;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.remember input[type="checkbox"]{
+  width: 16px;
+  height: 16px;
+  accent-color: #e50914;   
+  cursor: pointer;
+}
+
+.new{
+    font-size: 17px;
+    color: gray;
+    margin-bottom: 12px;
+}
+.new a{
+    color: white;
+}
+.captcha{
+    font-size: 13px;
+    color: gray;
+    margin-bottom: 12px;
+}
+/* footer */
+.netflix-footer {
+            width: 80%;
+            margin: auto;
+            padding: 30px;
+            font-size: 15px;
+            color: gray;
+            padding-bottom: 100px;
+        }
+
+        .footer-container {
+            display: flex;
+            padding: 35px;
+        }
+
+        .footer-items{
+            color: gray;
+            width: 25%;
+            justify-content: space-between;
+            padding: 20px 0px;
+           
+        }
+.footer-items ul{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+        .footer-items li a{
+            color: gray;
+            font-size: 15px;
+            text-decoration: underline;
+            
+            
+            
+           
+        }
+
+        .lang-select select {
+            background: #000;
+            color: #fff;
+            border: 1px solid #777;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            /* arrow clean look */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            /* custom arrow space */
+            padding-right: 32px;
+        }
+
+        /* custom dropdown arrow */
+        .lang-select {
+            position: relative;
+            width: max-content;
+        }
+
+        .lang-select::after {
+            content: "▾";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            pointer-events: none;
+        }
+@media(max-width:768px) {
+            .footer-container {
+         
+                flex-direction: column;
+            }
+
+            .footer-items {
+                width: 100%;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="nav">
+            <a href="index.html" class="logo-link">
+  <img src="imges/log.jpeg" alt="Netflix Logo" class="logo">
+</a>
+            
+
+        </div>
+        <div class="from">
+            <h4 class="sign-in"> Sign In </h4>
+             <input type="text" placeholder="Email or mobile number">
+             <input type="password" placeholder=" Password">
+            <button type="button" class="sign-in-btn">sign in</button>
+           <p class="or">Or</p>
+           <button type="button" class="code-btn">Use a sign-in code</button>
+           <a href="#" class="link">Forgot password?</a>
+           <div class="remember">
+  <input type="checkbox" id="remember">
+  <label for="remember">Remember me</label>
+</div>
+
+           <p class="new">New to Netflix?<a href="#">Sign up now.</a></p>
+            <p class="captcha">This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+            <a href="#">Learn more.</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+     <footer class="netflix-footer">
+        <p class="title">Questions? Call 000-800-919-1743</p>
+        <div class="footer-container">
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                   
+                </ul>
+            </div>
+
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Corporate Information</a></li>
+                    </ul>
+            </div>
+
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                     </ul>
+            </div>
+
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                     </ul>
+            </div>
+
+        </div>
+        <div class="lang-select">
+            <select>
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+            </select>
+        </div>
+        
+
+    </footer>
+</body>
+</html>

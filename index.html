@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETFLIX.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .hero-container {
+            height: 600px;
+            width: 100%;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url(imges/bg.jpg);
+            background-size: cover;
+            background-position: center;
+            padding-top: 15px;
+        }
+
+        .container img {
+            height: 40px;
+            margin-left: 150px;
+        }
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo{
+  height: 40px;
+}
+
+.nav-right{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+        .signin {
+            padding: 10px;
+            background-color: red;
+            border-radius: 5px;
+            width: 90px;
+            margin-left: 5px;
+            float: right;
+
+        }
+
+        .signin a {
+            color: white;
+        }
+
+        .home {
+
+            max-width: 800px;
+            width: 90%;
+            background-color: rgba(0, 0, 0, 0.466);
+            padding: 50px;
+            text-align: center;
+            color: white;
+            margin: 0 auto;
+            margin-top: 130px;
+
+        }
+
+        .home .p1 {
+            font-size: 70px;
+            margin: -15px 0px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .home .p2 {
+            margin-bottom: 30px;
+            font-size: 25px;
+        }
+
+        .home input {
+            padding: 15px;
+            width: 60%;
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0.486);
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+
+        .home button {
+            padding: 5px 20px 5px 20px;
+            font-size: 30px;
+            background-color: red;
+        }
+
+        .card p {
+            position: absolute;
+            bottom: -25px;
+            left: -20px;
+            font-size: 90px;
+            font-size: 100px;
+            text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+
+        }
+
+        @media (max-width: 768px) {
+            .home .p1 {
+                font-size: 40px;
+            }
+
+            .home .p2 {
+                font-size: 18px;
+            }
+
+            .home input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .home button {
+                width: 100%;
+                font-size: 20px;
+            }
+
+            .container img {
+                margin-left: 20px;
+            }
+        }
+
+        .title {
+            color: white;
+            margin-left: 50px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            margin: 30px;
+        }
+
+        .slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .slider img {
+            width: 200px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .slider img:hover {
+            transform: scale(1.1);
+        }
+
+        /* arrows */
+        .arrow {
+            position: absolute;
+            top: 40%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .netflix-card-section {
+            display: flex;
+            gap: 20px;
+            padding: 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .netflix-card {
+            background: linear-gradient(180deg, #1a1a3d, #0b0b14);
+            color: white;
+            width: 270px;
+            padding: 25px;
+            border-radius: 18px;
+            position: relative;
+            min-height: 280px;
+        }
+
+        .netflix-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .netflix-card p {
+            font-size: 14px;
+            color: #cfcfcf;
+            line-height: 1.5;
+        }
+
+        .netflix-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+        }
+
+        .tv {
+            background: radial-gradient(circle at top, #ff5be1, #7b2cff);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+        }
+
+        .download {
+            background: radial-gradient(circle at top, #ff7a18, #ff2f92);
+            box-shadow: 0 0 20px rgba(255, 120, 0, 0.6);
+        }
+
+        .rocket {
+            background: radial-gradient(circle at top, #00d4ff, #0066ff);
+            box-shadow: 0 0 20px rgba(0, 150, 255, 0.6);
+        }
+
+        .kids {
+            background: radial-gradient(circle at top, #ffcc00, #ff6600);
+            box-shadow: 0 0 20px rgba(255, 180, 0, 0.6);
+        }
+
+        @media (max-width:768px) {
+            .netflix-card {
+                justify-content: center;
+                padding: 0 20px;
+            }
+        }
+
+        .faq-title {
+            color: white;
+            margin: 50px;
+            font-size: 28px;
+        }
+
+        .faq {
+            width: 80%;
+            margin: auto;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: #2d2d2d;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: #414141;
+        }
+
+        .faq-answer {
+            background: #2d2d2d;
+            color: white;
+            display: none;
+            padding: 20px;
+            font-size: 18px;
+            border-top: 1px solid black;
+        }
+
+        .faq-icon {
+            font-size: 30px;
+            color: white;
+        }
+
+        .mail-box {
+            text-align: center;
+            font-size: 20px;
+            color: white;
+            padding: 40px;
+        }
+
+        .mail-box input {
+            width: 700px;
+            margin: 20px;
+            padding: 12px;
+            background-color: transparent;
+        }
+
+        .mail-box button {
+            color: white;
+            background-color: red;
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+
+        .netflix-footer {
+            width: 80%;
+            margin: auto;
+            padding: 30px;
+            font-size: 15px;
+            color: white;
+            padding-bottom: 100px;
+        }
+
+        .footer-container {
+            display: flex;
+            padding: 35px;
+        }
+
+        .footer-items {
+            color: white;
+            width: 25%;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .footer-items a {
+            color: white;
+            font-size: 15px;
+        }
+
+        .lang-select select {
+            background: #000;
+            color: #fff;
+            border: 1px solid #777;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+
+            /* arrow clean look */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            /* custom arrow space */
+            padding-right: 32px;
+        }
+
+        /* custom dropdown arrow */
+        .lang-select {
+            position: relative;
+            width: max-content;
+        }
+
+        .lang-select::after {
+            content: "▾";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            pointer-events: none;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .netflix-card:hover {
+            transform: translateY(-5px);
+            transition: 0.3s;
+        }
+
+        @media(max-width:768px) {
+            .footer-container {
+         
+                flex-direction: column;
+            }
+
+            .footer-items {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-container">
+       
+        <div class="nav">
+            <img src="imges/log.jpeg" alt="Netflix Logo" class="logo">
+            <div class="nav-right">
+            <div class="lang-select">
+                <select>
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                </select>
+            </div>
+            <div class="signin">
+                <a href="login.html">Sign In</a>
+            </div>
+            </div>
+            
+        </div>
+
+        <div class="home">
+            <p class="p1"> Unlimited movies, </p>
+            <p class="p1">TV shows and more</p>
+            <p class="p2">Starts at ₹149. Cancel at any time.</p>
+            <p class="p3">Ready to watch? Enter your email to create or restart your membership.</p>
+            <input type="">
+            <button type="button" class="btn btn-danger">Get Started</button>
+        </div>
+    </div>
+
+    <h2 class="title">Trending Now</h2>
+
+    <div class="slider-wrapper">
+        <button class="arrow left" onclick="slideLeft()">&#10094;</button>
+
+        <div class="slider" id="slider">
+            <img src="imges/card1.jpg">
+            <p>1</p>
+            <img src="imges/card2.jpg">
+            <p>2</p>
+            <img src="imges/card3.jpg">
+            <img src="imges/card4.jpg">
+            <img src="imges/card5.jpg">
+            <img src="imges/card1.jpg">
+            <img src="imges/card2.jpg">
+            <img src="imges/card3.jpg">
+            <img src="imges/card4.jpg">
+            <img src="imges/card5.jpg">
+        </div>
+
+        <button class="arrow right" onclick="slideRight()">&#10095;</button>
+    </div>
+
+    <h2 class="title">More reasons to join</h2>
+    <div class="netflix-card-section">
+        <div class="netflix-card">
+            <h1>Enjoy on your TV</h1>
+            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast,
+                Apple TV, Blu-ray players and more.</p>
+            <div class="netflix-icon tv">📺</div>
+        </div>
+        <div class="netflix-card">
+            <h1>Download your shows to watch offline</h1>
+            <p>Save your favourites easily and
+                always have something to watch.
+            </p>
+            <div class="netflix-icon download">⬇</div>
+        </div>
+        <div class="netflix-card">
+            <h1>Watch everywhere</h1>
+            <p>Stream unlimited movies and TV shows on your phone,
+                tablet, laptop, and TV.</p>
+            <div class="netflix-icon rocket">🚀</div>
+        </div>
+        <div class="netflix-card">
+            <h1>Create profiles for kids</h1>
+            <p>Send kids on adventures with their favourite characters
+                in a space made just for them — free with your membership.</p>
+            <div class="netflix-icon kids">👶</div>
+        </div>
+    </div>
+
+    <h2 class="title">Frequently Asked Questions</h2>
+    <div class="faq">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What is Netflix?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime,
+                    documentaries and more – on thousands of internet-connected devices.
+
+                    You can watch as much as you want, whenever you want, without a single ad – all for one low monthly
+                    price. There's always something new to discover, and new TV shows and movies are added every week!
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                How ,uch does Netflix cost?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed
+                    monthly fee. Plans range from ₹149 to ₹649/month.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Where can i watch?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at
+                    netflix.com from your personal computer or on any internet-connected device that offers the Netflix
+                    app, including smart TVs, smartphones, tablets, streaming media players and game consoles.
+
+                    You can also download your favourite shows with the iOS or Android app. Use downloads to watch while
+                    you're on the go and without an internet connection. Take Netflix with you anywhere.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                How do i cancel?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Netflix is flexible. You can easily cancel your account online in two clicks. There are no
+                    cancellation fees – start or stop your account anytime.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What can i watch on Netflix?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Netflix has an extensive library of feature films, documentaries, shows, anime, award-winning
+                    Netflix originals, and more. Watch as much as you want, anytime you want. </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Is Netflix good for kids?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    The Netflix Kids experience is included in your membership to give parents control while kids enjoy
+                    family-friendly TV shows and films in their own space.
+
+                    Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of
+                    content kids can watch and block specific titles you don’t want kids to see.</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <div class="mail-box">
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+        <input placeholder="Email address" type="text">
+        <button>Get Started ></button>
+    </div>
+    <footer class="netflix-footer">
+        <p class="title">Questions? Call 000-800-919-1743</p>
+        <div class="footer-container">
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Speed Test</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Cookie Preferences</a></li>
+                    <li><a href="#">Legal Notification</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Ways to Watch</a></li>
+                    <li><a href="#">Corporate information</a></li>
+                    <li><a href="#">Only on Netflix</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-items">
+                <ul>
+                    <li><a href="#">Media Center</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Contact Us</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+        <div class="lang-select">
+            <select>
+                <option value="en">English</option>
+                <option value="hi">हिंदी</option>
+            </select>
+        </div>
+        <div style="padding-top: 40px;">
+            <p>Netflix India</p>
+            <p style="padding-top: 30px;">This page is protected by Google reCAPTCHA to ensure you're not a bot.<a
+                    href=""> Learn more.</a></p>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+    <script>
+        const slider = document.getElementById("slider");
+
+        function slideLeft() {
+            slider.scrollLeft -= 300;
+        }
+
+        function slideRight() {
+            slider.scrollLeft += 300;
+        }
+
+
+
+        const questions = document.querySelectorAll(".faq-question");
+
+        questions.forEach((question) => {
+            question.addEventListener("click", () => {
+
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector(".icon");
+
+                // Close others
+                document.querySelectorAll(".faq-answer").forEach((item) => {
+                    if (item !== answer) {
+                        item.style.display = "none";
+                        item.previousElementSibling.querySelector(".icon").innerText = "+";
+                    }
+                });
+
+                // Toggle current
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    icon.innerText = "+";
+                } else {
+                    answer.style.display = "block";
+                    icon.innerText = "×";
+                }
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>
